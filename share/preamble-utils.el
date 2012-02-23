@@ -1,4 +1,4 @@
-(defun prelude-regexp-alternatives (regexps)
+(defun preamble-regexp-alternatives (regexps)
   "Return a regexp matching anything that any of REGEXPS matches."
   (mapconcat (lambda (regexp)
                (concat "\\(?:" regexp "\\)"))
