@@ -7,7 +7,8 @@
   (package-refresh-contents))
 
 (defvar preamble-packages
-  '(anything-config
+  '(anything
+    anything-config
     auctex
     ghci-completion
     google-translate
