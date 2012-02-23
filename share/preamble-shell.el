@@ -10,6 +10,9 @@
 ;; Traslate SGR control sequences into text properties.
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
+;; Use the custom color theme.
+(add-hook 'shell-mode-hook 'preamble-update-color-map)
+
 ;;; Directory tracking
 
 ;; More reliable shell directory tracking.  Unfortunately, Unix-only.

@@ -36,6 +36,16 @@
       preamble-white        preamble-color7
       preamble-bold-white   preamble-color15)
 
+(setq ansi-color-names-vector
+      (vector preamble-black
+              preamble-red
+              preamble-green
+              preamble-yellow
+              preamble-blue
+              preamble-magenta
+              preamble-cyan
+              preamble-white))
+
 (defvar preamble-bold-colors
   `((,preamble-black   . ,preamble-bold-black  )
     (,preamble-red     . ,preamble-bold-red    )
@@ -134,14 +144,7 @@ with it, return FACE."
           ansi-color-names-vector)
          ansi-color-map))))
 
-(setq ansi-color-names-vector
-      (vector preamble-black
-              preamble-red
-              preamble-green
-              preamble-yellow
-              preamble-blue
-              preamble-magenta
-              preamble-cyan
-              preamble-white))
+(defun preamble-update-color-map ()
+  (setq ansi-color-map (ansi-color-make-color-map)))
 
 (provide 'preamble-ansi-color)
