@@ -1,6 +1,6 @@
 (require 'preamble-comint)
 (require 'preamble-prog)
-(require 'preamble-util)
+(require 'preamble-utils)
 
 (load "haskell-site-file.el")
 
