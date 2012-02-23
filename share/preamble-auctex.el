@@ -15,7 +15,12 @@
 
 ;; Use source specials for forward and inverse search.
 (setq TeX-source-correlate-method 'source-specials)
-(add-hook 'LaTeX-mode-hook (lambda () (TeX-source-correlate-mode 1)))
+
+(defun preamble-turn-on-TeX-source-correlate-mode ()
+  (TeX-source-correlate-mode 1))
+
+(add-hook 'LaTeX-mode-hook
+          'preamble-turn-on-TeX-source-correlate-mode)
 
 ;; Start server for inverse search.
 (setq TeX-source-correlate-start-server t)
