@@ -45,7 +45,7 @@ all output and errors and disown the process."
 (defun preamble-kill-autoload-buffers ()
   "Kill `-autoload.el' buffers loaded by `package'."
   (dolist (buffer (buffer-list))
-    (when (string-match "-autoload\\.el$" (buffer-name buffer))
+    (when (string-match "-autoloads\\.el$" (buffer-name buffer))
       (kill-buffer buffer))))
 
 (provide 'preamble-utils)
