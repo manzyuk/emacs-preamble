@@ -18,7 +18,6 @@ All Emacs Lisp files there are loaded automatically.")
 
 (require 'preamble-browse-url)
 (require 'preamble-data)
-(require 'preamble-desktop)
 (require 'preamble-editing)
 (require 'preamble-env)
 (require 'preamble-files)
