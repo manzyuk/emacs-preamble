@@ -33,7 +33,7 @@ all output and errors and disown the process."
   (shell-command
    (concat command " > /dev/null 2>&1 & disown")))
 
-(global-set-key "M-&" 'preamble-async-shell-command)
+(global-set-key "\M-&" 'preamble-async-shell-command)
 
 (defun preamble-xdg-open (filename)
   "Open file FILENAME in the user's preferred application."
