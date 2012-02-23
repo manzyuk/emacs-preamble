@@ -10,7 +10,7 @@
                 (when (file-exists-p elc)
                   (delete-file elc))))))
 
-(defun preamble-emacs-lisp-hook ()
+(defun preamble-emacs-lisp-mode-hook ()
   (enable-paredit-mode)
   (turn-on-el-doc-mode)
   (preamble-delete-elc-on-save))
