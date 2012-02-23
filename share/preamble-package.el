@@ -22,4 +22,4 @@
   (unless (package-installed-p package)
     (package-install package)))
 
-(provide 'preamble-package.el)
+(provide 'preamble-package)
