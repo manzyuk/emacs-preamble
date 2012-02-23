@@ -39,3 +39,5 @@ on Windows."
 
 (add-hook 'shell-mode-hook
           'preamble-turn-on-directory-tracking)
+
+(provide 'preamble-shell)
