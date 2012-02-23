@@ -7,9 +7,7 @@
   (package-refresh-contents))
 
 (defvar preamble-packages
-  '(anything
-    anything-config
-    auctex
+  '(auctex
     ghci-completion
     google-translate
     haskell-mode
@@ -22,8 +20,5 @@
 (dolist (package preamble-packages)
   (unless (package-installed-p package)
     (package-install package)))
-
-(let ((default-directory package-user-dir))
-  (normal-top-level-add-subdirs-to-load-path))
 
 (provide 'preamble-package)

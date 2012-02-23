@@ -48,7 +48,6 @@ All Emacs Lisp files there are loaded automatically.")
 
 (require 'preamble-package)
 
-(require 'preamble-anything)
 (require 'preamble-auctex)
 (require 'preamble-emacs-lisp)
 (require 'preamble-google-translate)
