@@ -12,7 +12,7 @@
 
 (defun preamble-emacs-lisp-mode-hook ()
   (enable-paredit-mode)
-  (turn-on-el-doc-mode)
+  (turn-on-eldoc-mode)
   (preamble-delete-elc-on-save))
 
 (add-hook 'emacs-lisp-mode-hook
@@ -20,7 +20,7 @@
 
 (defun preamble-ielm-mode-hook ()
   (enable-paredit-mode)
-  (turn-on-el-doc-mode))
+  (turn-on-eldoc-mode))
 
 (add-hook 'ielm-mode-hook
           'preamble-ielm-mode-hook)
