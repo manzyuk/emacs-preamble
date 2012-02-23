@@ -1,5 +1,3 @@
-(load "auctex.el" nil t t)
-
 ;; Don't fontify subscript and superscript strings.
 (setq font-latex-fontify-script nil)
 
