@@ -61,7 +61,7 @@
                     (format "inferior-%s-history"
                             (process-name process))))
       (comint-read-input-ring)
-      (set-process-sentinel process #'comint-write-history-on-exit))))
+      (set-process-sentinel process #'preamble-comint-write-history-on-exit))))
 
 ;; If the buffer associated with a process is killed, the process's
 ;; sentinel is invoked when buffer-local variables  (in particular,
