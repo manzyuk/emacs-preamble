@@ -38,4 +38,4 @@
 ;; Use `M-s' to force the merge when it appears appropriate.
 (setq ido-auto-merge-work-directories-length -1)
 
-(require 'preamble-ido)
+(provide 'preamble-ido)
