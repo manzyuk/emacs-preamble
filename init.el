@@ -12,6 +12,9 @@ All Emacs Lisp files there are loaded automatically.")
 (add-to-list 'load-path preamble-local-directory)
 (add-to-list 'load-path preamble-share-directory)
 
+(let ((default-directory package-user-dir))
+  (normal-top-level-add-subdirs-to-load-path))
+
 (require 'preamble-utils)
 
 ;;; General customizations
