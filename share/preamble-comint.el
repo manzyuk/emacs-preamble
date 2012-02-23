@@ -20,7 +20,7 @@
 ;;; Filter out (some) control sequences
 
 (defvar preamble-control-sequence-regexp
-  (regexp-alternatives
+  (preamble-regexp-alternatives
        '("\033\\[\\??[0-9;]*[^0-9;m]"   ; non-SGR CSI escape sequences
          "\033\\][0-2];.*?\007"         ; icon name escape sequences
          "\012\033\\[2K\033\\[1F"       ; noop
