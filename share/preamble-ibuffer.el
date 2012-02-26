@@ -4,9 +4,9 @@
 ;; Define some filter groups.
 (setq ibuffer-saved-filter-groups
       (quote (("default"
-               ("Dired"
+               ("Dired  "
                 (mode . dired-mode))
-               ("Emacs"
+               ("Emacs  "
                 (or
                  (mode . help-mode)
                  (mode . Info-mode)
@@ -17,15 +17,15 @@
                  (mode . completion-list-mode)
                  (name . "^\\*scratch\\*$")
                  (name . "^\\*Messages\\*$")))
-               ("Org"
+               ("Org    "
                 (or
                  (mode . org-mode)
                  (mode . org-agenda-mode)))
-               ("LaTeX"
+               ("LaTeX  "
                 (or
                  (mode . latex-mode)
                  (mode . bibtex-mode)))
-               ("Scheme"
+               ("Scheme "
                 (or
                  (mode . scheme-mode)
                  (mode . inferior-scheme-mode)))
