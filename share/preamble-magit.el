@@ -1,4 +1,5 @@
 (require 'magit)
+(require 'preamble-ansi-color)
 
 (global-set-key "\C-cg" 'magit-status)
 
