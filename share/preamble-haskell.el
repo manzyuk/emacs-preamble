@@ -7,7 +7,8 @@
 (autoload 'haskell-mode "haskell-mode" "Haskell mode." t)
 
 (defun preamble-haskell-mode-hook ()
-  (preamble-prog-mode-hook)
+  (preamble-prog-mode-hook)             ; because `haskell-mode' is
+                                        ; not derived from `prog-mode'
   (turn-on-haskell-doc-mode)
   (turn-on-haskell-indent)
   (subword-mode 1))
