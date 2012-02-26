@@ -21,10 +21,9 @@
 (require 'ghci-completion)
 
 (defun preamble-inferior-haskell-mode-hook ()
-  ;; Enable comint input ring reading/writing from/to a history file.
   (preamble-turn-on-comint-history)
-  ;; Enable completion for GHCi commands in inferior-haskell buffers.
-  (turn-on-ghci-completion))
+  (turn-on-ghci-completion)
+  (subword-mode 1))
 
 (add-hook 'inferior-haskell-mode-hook
           'preamble-inferior-haskell-mode-hook)
