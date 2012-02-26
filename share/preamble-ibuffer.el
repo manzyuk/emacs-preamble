@@ -1,6 +1,9 @@
 ;; Replace standard buffer menu with `ibuffer'.
 (global-set-key "\C-x\C-b" 'ibuffer)
 
+;; By default, sort buffers by name, not by recency.
+(setq ibuffer-default-sorting-mode 'alphabetic)
+
 ;; Define some filter groups.
 (setq ibuffer-saved-filter-groups
       (quote (("default"
