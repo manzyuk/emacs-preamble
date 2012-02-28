@@ -1,5 +1,4 @@
 (require 'comint)
-(require 'preamble-utils)
 
 ;;; General settings
 
