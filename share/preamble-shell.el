@@ -7,9 +7,6 @@
 ;; Do not highlight any additional expressions in shell mode.
 (setq shell-font-lock-keywords nil)
 
-;; Traslate SGR control sequences into text properties.
-(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
-
 ;; Use the custom color theme.
 (add-hook 'shell-mode-hook 'preamble-update-color-map)
 

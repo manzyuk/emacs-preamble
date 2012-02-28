@@ -17,32 +17,6 @@
 ;; Input to interpreter causes the selected window to scroll.
 (setq-default comint-scroll-to-bottom-on-input 'this)
 
-;;; Filter out (some) control sequences
-
-(defvar preamble-control-sequence-regexp
-  (preamble-regexp-alternatives
-       '("\033\\[\\??[0-9;]*[^0-9;m]"   ; non-SGR CSI escape sequences
-         "\033\\][0-2];.*?\007"         ; icon name escape sequences
-         "\012\033\\[2K\033\\[1F"       ; noop
-         ))
-  "Regexp that matches control sequences to be filtered out.")
-
-(defun preamble-filter-control-sequences-in-region (beg end)
-  (save-excursion
-    (goto-char beg)
-    (while (re-search-forward preamble-control-sequence-regexp end t)
-      (replace-match ""))))
-
-(defun preamble-filter-control-sequences-in-output (ignored)
-  (let ((beg-marker (or comint-last-output-start
-                        (point-min-marker)))
-        (end-marker (process-mark
-                     (get-buffer-process (current-buffer)))))
-    (preamble-filter-control-sequences-in-region beg-marker end-marker)))
-
-(add-hook 'comint-output-filter-functions
-          'preamble-filter-control-sequences-in-output)
-
 ;;; Enable reading/writing of comint input ring from/to a history file
 
 (defun preamble-comint-write-history-on-exit (process event)

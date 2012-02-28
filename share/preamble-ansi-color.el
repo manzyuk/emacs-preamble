@@ -1,4 +1,5 @@
 (require 'ansi-color)
+(require 'preamble-utils)
 
 ;; Define colors a la the default gnome-terminal color theme.
 
@@ -146,5 +147,14 @@ with it, return FACE."
 
 (defun preamble-update-color-map ()
   (setq ansi-color-map (ansi-color-make-color-map)))
+
+;; Silently drop some more ANSI control sequences.
+(setq ansi-color-drop-regexp
+      (preamble-regexp-alternatives
+       `(,ansi-color-drop-regexp
+         "\033\\[\\??[0-9;]*[^0-9;m]"   ; non-SGR CSI escape sequences
+         "\033\\][0-2];.*?\007"         ; icon name escape sequences
+         "\012\033\\[2K\033\\[1F"       ; noop
+         )))
 
 (provide 'preamble-ansi-color)
