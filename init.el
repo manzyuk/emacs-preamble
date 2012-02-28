@@ -16,6 +16,7 @@ All Emacs Lisp files there are loaded automatically.")
 
 ;;; General customizations
 
+(require 'preamble-bookmarks)
 (require 'preamble-browse-url)
 (require 'preamble-data)
 (require 'preamble-editing)
