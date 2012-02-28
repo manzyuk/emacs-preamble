@@ -9,7 +9,6 @@
 
 (setq ruby-program-name "irb --inf-ruby-mode")
 
-;; Enable comint input ring reading/writing from/to a history file.
 (add-hook 'inferior-ruby-mode-hook
           'preamble-turn-on-comint-history)
 
