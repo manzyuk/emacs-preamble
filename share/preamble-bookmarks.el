@@ -16,4 +16,7 @@
 (global-set-key "\C-cm" 'preamble-bookmark-set)
 (global-set-key "\C-cj" 'preamble-bookmark-jump)
 
+(setq bookmark-default-file
+      (concat user-emacs-directory "bookmarks"))
+
 (provide 'preamble-bookmarks)
