@@ -18,4 +18,15 @@
 (setq shell-file-name "bash")
 (setq explicit-shell-file-name shell-file-name)
 
+;; The standard way to have multiple shells is to open a shell, rename
+;; its buffer, open a new shell, rename its buffer etc.  This is
+;; tedious.  The following function makes it easier.
+(defun preamble-named-shell (name directory)
+  "Open a named shell. NAME is the base name of the shell buffer,
+and DIRECTORY is the directory to open the shell in."
+  (interactive "MName: \nDDirectory: ")
+  (switch-to-buffer (concat "*" name "*"))
+  (cd directory)
+  (shell (current-buffer)))
+
 (provide 'preamble-shell)
