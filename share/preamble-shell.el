@@ -16,4 +16,8 @@
 (add-hook 'shell-mode-hook
           'preamble-turn-on-dirtrack-mode)
 
+;; Use bash when requesting inferior shells (also remote ones).
+(setq shell-file-name "bash")
+(setq explicit-shell-file-name shell-file-name)
+
 (provide 'preamble-shell)
