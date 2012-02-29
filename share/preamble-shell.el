@@ -1,5 +1,4 @@
 (require 'shell)
-(require 'ansi-color)
 (require 'preamble-ansi-color)
 
 ;;; General settings
