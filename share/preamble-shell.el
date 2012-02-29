@@ -1,8 +1,6 @@
 (require 'shell)
 (require 'preamble-ansi-color)
 
-;;; General settings
-
 ;; Do not highlight any additional expressions in shell mode.
 (setq shell-font-lock-keywords nil)
 
