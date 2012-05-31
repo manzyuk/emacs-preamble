@@ -1,3 +1,6 @@
+(defun preamble-prog-mode-hook ()
+  (preamble-comment-auto-fill-only-comments))
+
 (defun preamble-comment-auto-fill-only-comments ()
   (set (make-local-variable 'comment-auto-fill-only-comments) t)
   (auto-fill-mode 1))
