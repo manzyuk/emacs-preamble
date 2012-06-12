@@ -6,4 +6,14 @@
   '(add-to-list 'dired-compress-file-suffixes
                 '("\\.zip\\'" ".zip" "unzip")))
 
+;; Make `dired-do-async-shell-command' more useful: don't display any
+;; output or errors and detach the command from the Emacs process, so
+;; that it persists even if Emacs exits.
+(defadvice dired-do-async-shell-command (around dired-do-async-shell-command-silently)
+  (flet ((shell-command (command &optional output-buffer error-buffer)
+           (preamble-shell-command-silently command)))
+    ad-do-it))
+
+(ad-activate 'dired-do-async-shell-command)
+
 (provide 'preamble-dired)
