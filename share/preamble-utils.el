@@ -36,8 +36,8 @@ all output and errors and disown the process."
 (global-set-key "\M-&" 'preamble-async-shell-command)
 
 (defun preamble-xdg-open (filename)
-  "Open file FILENAME in the user's preferred application."
-  (iteractive
+  "Open file FILENAME in user's preferred application."
+  (interactive
    (list (ido-read-file-name "Open file: ")))
   (preamble-async-shell-command
    (format "xdg-open \"%s\"" filename)))
