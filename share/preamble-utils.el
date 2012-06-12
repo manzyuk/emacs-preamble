@@ -18,20 +18,28 @@ of separate lines."
         (kill-buffer buffer)
         (find-file file-name)))))
 
-;; Make `async-shell-command' more useful: supress (i.e., redirect
-;; to /dev/null) all output and errors and disown the process.
-(defun preamble-async-shell-command (command)
-  "Execute shell command COMMAND asynchronously in background.
+(defun preamble-shell-command-silently (command)
+  "Execute string COMMAND in a subshell of inferior shell.  Don't
+display any output or errors."
+  (shell-command (format "( %s ) > /dev/null 2>&1" command)))
 
-Unlike `async-shell-command', suppress (i.e., redirect to /dev/null)
-all output and errors and disown the process."
+(defun preamble-async-shell-command (command)
+  "Execute string COMMAND asynchronously in background.
+
+Unlike `async-shell-command', don't display any output or errors.
+Furthermore, because COMMAND is executed in a subshell, it is
+detached from the Emacs process."
+  ;; Copied from `simple.el' and modified to call
+  ;; `preamble-shell-command-silently' instead of
+  ;; `shell-command'.
   (interactive
    (list
-    (read-shell-command "Run: " nil nil
+    (read-shell-command "Async shell command: " nil nil
                         (and buffer-file-name
                              (file-relative-name buffer-file-name)))))
-  (shell-command
-   (concat command " > /dev/null 2>&1 & disown")))
+  (unless (string-match "&[ \t]*\\'" command)
+    (setq command (concat command " &")))
+  (preamble-shell-command-silently command))
 
 (global-set-key "\M-&" 'preamble-async-shell-command)
 
