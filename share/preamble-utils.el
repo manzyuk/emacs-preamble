@@ -18,30 +18,25 @@ of separate lines."
         (kill-buffer buffer)
         (find-file file-name)))))
 
+;; Copy the function definition of the symbol `shell-command', so that
+;; we can dynamically shadow it with the help of `flet' and use the
+;; old definition in the body of the new one without entering a loop.
+(fset 'preamble-shell-command (symbol-function 'shell-command))
+
 (defun preamble-shell-command-silently (command)
   "Execute string COMMAND in a subshell of inferior shell.  Don't
 display any output or errors."
-  (shell-command (format "( %s ) > /dev/null 2>&1" command)))
+  (preamble-shell-command (format "( %s ) > /dev/null 2>&1" command)))
 
-(defun preamble-async-shell-command (command)
-  "Execute string COMMAND asynchronously in background.
+;; Make `async-shell-command' more useful: don't display any output or
+;; errors and detach the command from the Emacs process, so that it
+;; persists even if Emacs exits.
+(defadvice async-shell-command (around async-shell-command-silently)
+  (flet ((shell-command (command &optional output-buffer error-buffer)
+           (preamble-shell-command-silently command)))
+    ad-do-it))
 
-Unlike `async-shell-command', don't display any output or errors.
-Furthermore, because COMMAND is executed in a subshell, it is
-detached from the Emacs process."
-  ;; Copied from `simple.el' and modified to call
-  ;; `preamble-shell-command-silently' instead of
-  ;; `shell-command'.
-  (interactive
-   (list
-    (read-shell-command "Async shell command: " nil nil
-                        (and buffer-file-name
-                             (file-relative-name buffer-file-name)))))
-  (unless (string-match "&[ \t]*\\'" command)
-    (setq command (concat command " &")))
-  (preamble-shell-command-silently command))
-
-(global-set-key "\M-&" 'preamble-async-shell-command)
+(ad-activate 'async-shell-command)
 
 (defun preamble-xdg-open (filename)
   "Open file FILENAME in user's preferred application."
