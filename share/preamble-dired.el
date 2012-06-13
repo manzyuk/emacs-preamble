@@ -19,4 +19,13 @@ the Emacs process, so that it persists even if Emacs exits."
 
 (ad-activate 'dired-do-async-shell-command)
 
+(defun preamble-dired-do-xdg-open ()
+  "In Dired, open file mentioned on this line in user's preferred
+application."
+  (interactive)
+  (dired-do-async-shell-command
+   "xdg-open"
+   nil
+   (list (dired-get-filename t nil))))
+
 (provide 'preamble-dired)
