@@ -28,4 +28,18 @@ application."
    nil
    (list (dired-get-filename t nil))))
 
+(defun preamble-dired-hook ()
+  (define-key dired-mode-map "\r"
+    'dired-find-alternate-file)
+  (define-key dired-mode-map "^"
+    (lambda ()
+      (interactive)
+      (find-alternate-file "..")))
+  (define-key dired-mode-map "V"
+    'preamble-dired-do-xdg-open)
+  (define-key dired-mode-map "E"
+    'wdired-change-to-wdired-mode))
+
+(add-hook 'dired-mode-hook 'preamble-dired-hook)
+
 (provide 'preamble-dired)
