@@ -28,12 +28,15 @@ of separate lines."
 display any output or errors."
   (preamble-shell-command (format "( %s ) > /dev/null 2>&1" command)))
 
-;; Make `async-shell-command' more useful: don't display any output or
-;; errors and detach the command from the Emacs process, so that it
-;; persists even if Emacs exits.
 (defadvice async-shell-command (around async-shell-command-silently)
+  "Execute a shell command silently.
+
+Don't display any output or errors and detach the command from
+the Emacs process, so that it persists even if Emacs exits."
   (flet ((shell-command (command &optional output-buffer error-buffer)
-           (preamble-shell-command-silently command)))
+           (preamble-shell-command-silently command))
+         (message (format-string &rest args)
+           nil))
     ad-do-it))
 
 (ad-activate 'async-shell-command)
