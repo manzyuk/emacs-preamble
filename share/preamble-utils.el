@@ -28,16 +28,21 @@ of separate lines."
 display any output or errors."
   (preamble-shell-command (format "( %s ) > /dev/null 2>&1" command)))
 
+(defmacro silently (&rest body)
+  "Execute BODY suppressing Emacs messages and any shell command
+output and errors."
+  `(flet ((shell-command (command &optional output-buffer error-buffer)
+            (preamble-shell-command-silently command))
+          (message (format-string &rest args)
+            nil))
+     ,@body))
+
 (defadvice async-shell-command (around async-shell-command-silently)
   "Execute a shell command silently.
 
 Don't display any output or errors and detach the command from
 the Emacs process, so that it persists even if Emacs exits."
-  (flet ((shell-command (command &optional output-buffer error-buffer)
-           (preamble-shell-command-silently command))
-         (message (format-string &rest args)
-           nil))
-    ad-do-it))
+  (silently ad-do-it))
 
 (ad-activate 'async-shell-command)
 

@@ -11,11 +11,7 @@
 
 Don't display any output or errors and detach the command from
 the Emacs process, so that it persists even if Emacs exits."
-  (flet ((shell-command (command &optional output-buffer error-buffer)
-           (preamble-shell-command-silently command))
-         (message (format-string &rest args)
-           nil))
-    ad-do-it))
+  (silently ad-do-it))
 
 (ad-activate 'dired-do-async-shell-command)
 
