@@ -42,7 +42,7 @@ display any output or errors."
   "Open file FILENAME in user's preferred application."
   (interactive
    (list (ido-read-file-name "Open file: ")))
-  (preamble-async-shell-command
+  (async-shell-command
    (format "xdg-open \"%s\"" filename)))
 
 (defun preamble-kill-autoload-buffers ()
