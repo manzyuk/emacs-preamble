@@ -4,11 +4,6 @@
                (concat "\\(?:" regexp "\\)"))
              regexps "\\|"))
 
-(defun preamble-shell-command-to-list (command)
-  "Execute shell command COMMAND and return its output as a list
-of separate lines."
-  (split-string (shell-command-to-string command) "\n" t))
-
 ;; Copy the function definition of the symbol `shell-command', so that
 ;; we can dynamically shadow it with the help of `flet' and use the
 ;; old definition in the body of the new one without entering a loop.
