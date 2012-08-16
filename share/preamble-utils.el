@@ -44,13 +44,6 @@ Don't display any output or errors and detach the command from
 the Emacs process, so that it persists even if Emacs exits."
   (silently ad-do-it))
 
-(defun preamble-xdg-open (filename)
-  "Open file FILENAME in user's preferred application."
-  (interactive
-   (list (ido-read-file-name "Open file: ")))
-  (async-shell-command
-   (format "xdg-open \"%s\"" filename)))
-
 (defun preamble-kill-autoload-buffers ()
   "Kill `-autoload.el' buffers loaded by `package'."
   (dolist (buffer (buffer-list))
