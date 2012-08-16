@@ -9,15 +9,6 @@
 of separate lines."
   (split-string (shell-command-to-string command) "\n" t))
 
-(defun preamble-reload-files ()
-  "Revisit files loaded into the current Emacs session."
-  (interactive)
-  (dolist (buffer (buffer-list))
-    (let ((file-name (buffer-file-name buffer)))
-      (when file-name
-        (kill-buffer buffer)
-        (find-file file-name)))))
-
 ;; Copy the function definition of the symbol `shell-command', so that
 ;; we can dynamically shadow it with the help of `flet' and use the
 ;; old definition in the body of the new one without entering a loop.
