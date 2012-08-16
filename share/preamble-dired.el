@@ -6,14 +6,12 @@
   '(add-to-list 'dired-compress-file-suffixes
                 '("\\.zip\\'" ".zip" "unzip")))
 
-(defadvice dired-do-async-shell-command (around dired-do-async-shell-command-silently)
+(defadvice dired-do-async-shell-command (around dired-do-async-shell-command-silently activate)
   "Execute a shell command silently.
 
 Don't display any output or errors and detach the command from
 the Emacs process, so that it persists even if Emacs exits."
   (silently ad-do-it))
-
-(ad-activate 'dired-do-async-shell-command)
 
 (defun preamble-dired-do-xdg-open ()
   "In Dired, open file mentioned on this line in user's preferred

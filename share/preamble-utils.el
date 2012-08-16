@@ -37,14 +37,12 @@ output and errors."
             nil))
      ,@body))
 
-(defadvice async-shell-command (around async-shell-command-silently)
+(defadvice async-shell-command (around async-shell-command-silently activate)
   "Execute a shell command silently.
 
 Don't display any output or errors and detach the command from
 the Emacs process, so that it persists even if Emacs exits."
   (silently ad-do-it))
-
-(ad-activate 'async-shell-command)
 
 (defun preamble-xdg-open (filename)
   "Open file FILENAME in user's preferred application."
