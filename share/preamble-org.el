@@ -28,12 +28,10 @@
     (beginning-of-line)
     (looking-at "^\s*#\\+\\(begin\\|end\\)_.*$")))
 
-(defadvice org-mode-flyspell-verify (around org-mode-flyspell-verify-around)
+(defadvice org-mode-flyspell-verify (around org-mode-flyspell-verify-around activate)
   (setq ad-return-value
         (and ad-do-it
              (not (preamble-org-mode-in-block-p))
              (not (preamble-org-mode-in-block-delimiter-p)))))
-
-(ad-activate 'org-mode-flyspell-verify)
 
 (provide 'preamble-org)
