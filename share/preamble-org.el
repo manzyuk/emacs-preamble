@@ -13,7 +13,12 @@
 (setq org-capture-templates
       '(("t" "TODO" entry (file "~/org/todo.org") "* TODO %?")))
 
+;; Fontify code in code blocks.
 (setq org-src-fontify-natively t)
+
+;; Make TAB behave in a code block as if it were issued in the
+;; language major mode buffer.
+(setq org-src-tab-acts-natively t)
 
 ;; Don't check spelling inside code blocks and code block delimiters.
 (defun preamble-org-mode-in-block-p ()
