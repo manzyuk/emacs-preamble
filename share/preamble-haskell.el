@@ -9,8 +9,6 @@
 (setq haskell-indent-offset 2)
 
 (defun preamble-haskell-mode-hook ()
-  (preamble-prog-mode-hook)             ; because `haskell-mode' is
-                                        ; not derived from `prog-mode'
   (turn-on-haskell-doc-mode)
   (turn-on-haskell-indent)
   (subword-mode 1))

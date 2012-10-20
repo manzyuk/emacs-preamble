@@ -44,7 +44,6 @@ All Emacs Lisp files there are loaded automatically.")
 (require 'preamble-ido)
 (require 'preamble-mail)
 (require 'preamble-makefile)
-(require 'preamble-prog)
 (require 'preamble-shell)
 (require 'preamble-text)
 
