@@ -1,7 +1,7 @@
 (require 'cl)
 (require 'org-install)
 
-(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
 
