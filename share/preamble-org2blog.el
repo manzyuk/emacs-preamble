@@ -12,6 +12,6 @@
       "# -*- eval: (org2blog/wp-mode 1) -*-
 #+DATE: %s
 #+TITLE: %s
-#+OPTIONs: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil")
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil")
 
 (provide 'preamble-org2blog)
