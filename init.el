@@ -58,6 +58,7 @@ All Emacs Lisp files there are loaded automatically.")
 (require 'preamble-lisp)
 (require 'preamble-magit)
 (require 'preamble-org)
+(require 'preamble-org2blog)
 (require 'preamble-ruby)
 (require 'preamble-scheme)
 
