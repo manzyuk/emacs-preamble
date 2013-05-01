@@ -1,5 +1,7 @@
 ;; Enable `global-auto-revert-mode'.
 (global-auto-revert-mode 1)
+(setq auto-revert-verbose nil)
+(setq global-auto-revert-non-file-buffers t)
 
 ;; Don't make backup files.
 (setq-default make-backup-files nil)
