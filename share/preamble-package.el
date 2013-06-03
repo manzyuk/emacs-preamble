@@ -16,6 +16,7 @@
     inf-ruby
     magit
     org
+    org2blog
     paredit)
   "List of package to ensure are installed at launch.")
 
