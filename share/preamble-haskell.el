@@ -1,8 +1,6 @@
 (require 'preamble-comint)
 (require 'preamble-utils)
 
-(load "haskell-site-file.el")
-
 (autoload 'haskell-mode "haskell-mode" "Haskell mode." t)
 
 (setq haskell-indent-offset 2)
