@@ -14,4 +14,6 @@
 (global-set-key (kbd "C-c R")
                 'google-translate-query-translate-reverse)
 
+(set-face-attribute 'google-translate-translation-face nil :height 1.4)
+
 (provide 'preamble-google-translate)
