@@ -16,6 +16,12 @@
 ;; Fontify code in code blocks.
 (setq org-src-fontify-natively t)
 
+;; Allow code blocks be evaluated by pressing C-c C-c insided a block.
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   (sh . t)))
+
 ;; Make TAB behave in a code block as if it were issued in the
 ;; language major mode buffer.
 (setq org-src-tab-acts-natively t)
