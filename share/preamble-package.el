@@ -12,6 +12,7 @@
   '(auctex
     ghci-completion
     google-translate
+    grep-a-lot
     haskell-mode
     inf-ruby
     magit
