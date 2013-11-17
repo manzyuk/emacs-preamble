@@ -64,6 +64,9 @@ All Emacs Lisp files there are loaded automatically.")
 (require 'preamble-scheme)
 
 (when (file-exists-p preamble-local-directory)
-  (mapc 'load (directory-files preamble-local-directory nil "^[^#].*\\.el$")))
+  (mapc (lambda (filename)
+          (message "Loading %s..." filename)
+          (load filename))
+        (directory-files preamble-local-directory t "^[^#].*\\.el$")))
 
 (add-hook 'after-init-hook 'preamble-kill-autoload-buffers)
