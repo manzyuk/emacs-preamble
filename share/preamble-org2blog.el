@@ -1,3 +1,7 @@
+(add-to-list 'load-path "~/.emacs.d/site-lisp/xml-rpc")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/metaweblog")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/org2blog")
+
 (require 'org2blog-autoloads)
 
 (setq org2blog/wp-blog-alist
