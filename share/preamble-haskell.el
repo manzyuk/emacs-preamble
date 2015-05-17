@@ -15,11 +15,8 @@
 
 (set-default 'haskell-literate-default 'tex)
 
-(require 'ghci-completion)
-
 (defun preamble-inferior-haskell-mode-hook ()
   (preamble-turn-on-comint-history)
-  (turn-on-ghci-completion)
   (subword-mode 1))
 
 (add-hook 'inferior-haskell-mode-hook
