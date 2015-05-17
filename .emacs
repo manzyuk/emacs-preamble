@@ -476,6 +476,12 @@ and DIRECTORY is the directory to open the shell in."
 
 (set-face-attribute 'magit-item-highlight nil :inherit nil)
 
+(unless (fboundp 'buffer-stale--default-function)
+  (defun buffer-stale--default-function (&optional _noconfirm)
+    (and buffer-file-name
+         (file-readable-p buffer-file-name)
+         (not (verify-visited-file-modtime (current-buffer))))))
+
 ;;; Org
 
 ;; Fontify code in code blocks.
