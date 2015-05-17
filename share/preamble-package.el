@@ -1,7 +1,7 @@
 (require 'package)
 
 (add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 (package-initialize)
 
@@ -9,15 +9,7 @@
   (package-refresh-contents))
 
 (defvar preamble-packages
-  '(auctex
-    ghci-completion
-    google-translate
-    grep-a-lot
-    haskell-mode
-    inf-ruby
-    magit
-    org
-    paredit)
+  '(auctex haskell-mode magit paredit)
   "List of package to ensure are installed at launch.")
 
 (dolist (package preamble-packages)
