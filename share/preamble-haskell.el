@@ -8,6 +8,7 @@
 (defun preamble-haskell-mode-hook ()
   (turn-on-haskell-doc-mode)
   (turn-on-haskell-indent)
+  (inf-haskell-mode 1)
   (subword-mode 1))
 
 (add-hook 'haskell-mode-hook
